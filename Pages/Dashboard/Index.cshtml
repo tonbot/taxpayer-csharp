@@ -1,0 +1,65 @@
+@page 
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Login Page";
+}
+
+
+    <div class="mother-wrapper">
+        <!-- sider-bar starts -->
+        @await Html.PartialAsync("Shared/Components/_Sidebar")
+
+        <div class="content-wrapper">
+            <!-- desktop header -->
+             @await Html.PartialAsync("Shared/Components/_DesktopHeader")
+            <!-- mobile header -->
+              @await Html.PartialAsync("Shared/Components/_MobileHeader")
+    
+            <!-- dashboard main content starts  -->
+            <div class="main-content p-3 py-5 p-md-5">
+
+
+                <!-- action button -->
+                <div class="row mb-4 bg-white py-5 px-5  align-items-center app-container">
+
+                    <div class="col-md-4 mt-4">
+                        <a href="paye-tcc.php" class="text-decoration-none">
+                            <div class="card text-center shadow-sm py-3">
+                                <div class="card-body">
+                                    <i class="fa fa-certificate fa-3x text-secondary"></i>
+                                    <h5 class="mt-2">Tax Clearance Certificate</h5>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col-md-4 mt-4">
+                        <a href="single-bill.php" class="text-decoration-none">
+                            <div class="card text-center shadow-sm py-3">
+                                <div class="card-body">
+                                    <i class="fa fa-credit-card fa-3x text-danger"></i>
+                                    <h5 class="mt-2">Others Payments</h5>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="col-md-4 mt-4">
+                        <a href="paye-filling.php" class="text-decoration-none">
+                            <div class="card text-center shadow-sm py-3">
+                                <div class="card-body">
+                                    <i class="fa fa-line-chart fa-3x text-primary"></i>
+                                    <h5 class="mt-2">E-Filling</h5>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                </div>
+
+
+            </div>
+            <!-- dashboard main content ends  -->
+        </div>
+        <!-- content wrapper ends  -->
+    </div>

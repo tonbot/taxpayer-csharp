@@ -1,0 +1,83 @@
+@media screen and (min-width: 601px) and (max-width: 1024px) {
+    .title-container {
+        display: none;
+      }
+    
+      .wrapper-container {
+        grid-template-columns: 1fr;
+      }
+    
+      .app-desc {
+        font-size: 0.9em;
+      }
+    
+      /*--------------------------------
+        --------- 
+        DASHBOARD STARTS SMALL SCREEN
+        ------------------------
+        --------*/
+      .mother-wrapper {
+        height: 100vh;
+      }
+    
+      .desktop-header {
+        display: none;
+      }
+    
+      .mobile-header {
+        display: flex;
+        justify-content: space-between;
+        padding: 20px;
+        background-color: #fff;
+        align-items: center;
+        justify-items: center;
+        width: 100;
+      }
+    
+      .mobile-header h1 {
+        font-size: 1.2em;
+        display: flex;
+        align-items: center;
+        height: fit-content;
+      }
+    
+      .mobile-header .fa {
+        font-size: 1.2em;
+        border: 1px solid rgba(0, 0, 0, 0.3);
+        display: flex;
+        align-items: center;
+        width: 40px;
+        height: 40px;
+        justify-content: center;
+      }
+    
+      .sidebar-wrapper {
+        height: 100%;
+        width: 250px;
+        max-width: 250px;
+        position: absolute;
+        left: -250px;
+        z-index: 10000;
+        /* display: none; */
+      }
+    
+      .sidebar-wrapper > div {
+        font-weight: 700;
+      }
+    
+      .stock-action a {
+        display: block;
+        padding: 10px 0;
+        text-align: center;
+        border-right: 0;
+      }
+    
+      .stock-action {
+        text-align: center;
+      }
+      /* DASHBOARD END SMALL SCREEN */
+
+      .search-wrapper{
+        display: none;
+      }
+}

@@ -1,0 +1,208 @@
+@page
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Login Page";
+}
+
+
+<div class="mother-wrapper">
+    <!-- sider-bar starts -->
+    @await Html.PartialAsync("Shared/Components/_Sidebar")
+
+    <div class="content-wrapper">
+        <!-- desktop header -->
+        @await Html.PartialAsync("Shared/Components/_DesktopHeader")
+        <!-- mobile header -->
+        @await Html.PartialAsync("Shared/Components/_MobileHeader")
+
+        <!-- dashboard main content starts  -->
+        <!-- dashboard main content starts  -->
+        <div class="main-content p-3 py-5 p-md-5">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="dashboard.php">Dashboard</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Bill Payment</li>
+                </ol>
+            </nav>
+
+            <div class=" row mb-4 px-4 bg-white">
+                <div class="page-title d-flex justify-content-between ">
+                    <h1 class="">🚀 Bill Payment</h1>
+                    <button type="button" id="openBillForm" class="btn custom-btn-primary shadow py-md-3 m-3">Open
+                        Payment Form</button>
+                </div>
+
+            </div>
+
+            <div class="row mb-4 bg-white py-4 px-3 shadow align-items-center">
+                <div class="modal fade modal-lg" id="addBillModal" tabindex="-1" role="dialog"
+                    aria-labelledby="addBillModalLabel" aria-hidden="true" data-backdrop="static">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="addBillModalLabel">Bill Generation</h5>
+                            </div>
+                            <div class="modal-body">
+                                <div class="d-flex justify-content-center py-2 bill-formwrapper">
+                                    <form id="singleBillForm" method="post" class="py-3 px-md-4">
+                                        <div class="card shadow-sm">
+                                            <div class="card-header text-white">
+                                                <h5 class="mb-0 py-2">Single Bill Form</h5>
+                                            </div>
+
+                                            @* <input type="hidden" value="<?= $id ?>" name="tax_id" required>
+                                            <input type="hidden" value="1" name="type" required> *@
+
+                                            <div class="card-body p-lg-4 ">
+
+                                                <div class="form-group">
+                                                    <label for="agency">Who do you want to pay?</label>
+                                                    <div>
+                                                        <select id="agency" name="agency" class="form-control select-2"
+                                                            required>
+                                                            <!-- Options will be populated dynamically -->
+                                                        </select>
+                                                    </div>
+
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <div class="row">
+                                                        <label for="revenueName">What do you want to pay for?</label>
+                                                    </div>
+                                                    <select id="revenueName" name="revenueName"
+                                                        class="form-control select-2" required>
+                                                        <!-- Options will be populated dynamically -->
+                                                    </select>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label for="amount">How much are you paying?</label>
+                                                    <input type="number" id="amount" name="amount" class="form-control"
+                                                        placeholder="Enter Amount" required>
+                                                </div>
+
+                                                <div class="alert alert-dark mt-3" role="alert">
+                                                    Please verify the above information carefully before you proceed.
+                                                </div>
+                                            </div>
+
+                                            <div class="card-footer d-flex justify-content-center">
+                                                <button type="button" id='cancelBillBtn'
+                                                    class="btn btn-secondary py-md-3 m-3 ">Cancel Now</button>
+                                                <button type='button' onclick="createBill()"
+                                                    class="btn custom-btn-primary shadow py-md-3 m-3 d-flex justify-content-center align-items-center">
+                                                    <i class="fa fa-spinner d-none fa-spin fa-2x text-white"
+                                                        id="loadingSpinner"></i> <span class="px-2">Proceed
+                                                        Now</span></button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bill history table Start -->
+                <div class="row bg-white shadow-sm py-4 tableWrapper" id="historyTable">
+                    <div class="alert alert-dark"><i class="fa fa-info-circle fa-1x" aria-hidden="true"></i>
+                        Please refresh the page if you have recently generated a bill. This is to capture the recent
+                        data </div>
+                    <div class="col">
+                        <table id="billHistoryTable" class="table table-striped table-bordered table-responsive">
+                            <thead>
+                                <tr class="">
+                                    <th>S/n</th>
+                                    <th>Bill Purpose</th>
+                                    <th>Bill Number</th>
+                                    <th>Tax ID</th>
+                                    <th>Bill Amount</th>
+                                    <th>Payment Status</th>
+                                    <th>Created Date</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <!-- Bill history table end -->
+
+
+                <!-- on success of bill generation starts-->
+                <div class="modal fade modal-lg" id="billModal" tabindex="-1" role="dialog"
+                    aria-labelledby="billModalLabel" aria-hidden="true" data-backdrop="static">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="billModalLabel">Bill Generation</h5>
+                            </div>
+                            <div class="modal-body">
+                                <div class="alert alert-success"><b>Your Bill is processed successfully</b></div>
+
+                                <div class="row mb-2">
+                                    <div class="col-md-3">
+                                        <b>Bill Number:</b>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <span id="bill-number"></span>
+                                    </div>
+                                </div>
+                                <div class="row mb-2">
+                                    <div class="col-md-3">
+                                        <b>Bill Purpose:</b>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <span id="bill-purpose"></span>
+                                    </div>
+                                </div>
+                                <div class="row mb-2">
+                                    <div class="col-md-3">
+                                        <b>Bill Agency:</b>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <span id="bill-agency"></span>
+                                    </div>
+                                </div>
+                                <div class="row mb-2">
+                                    <div class="col-md-3">
+                                        <b>Bill Amount:</b>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <span id="bill-amount"></span>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                            <div class="modal-footer d-flex justify-content-start">
+                                <a href="#" class="btn custom-btn-primary py-md-3" id='downloadBill'>Download Invoice
+                                    Pdf</a>
+                                <a href="#" class="btn btn-danger py-md-3" id='makePayment'>Make Payment Now</a>
+                                <button type="button" class="btn btn-secondary py-md-3"
+                                    id='cancelButton'>Cancel</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- on success of bill generation ends -->
+
+            </div>
+        </div>
+        <!-- dashboard main content ends  -->
+
+    </div>
+    <!-- content wrapper ends  -->
+</div>

@@ -1,0 +1,32 @@
+﻿@page
+@namespace MyFirstCoreApp.Pages
+@model IndexModel
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Login Page";
+}
+
+<div class="d-flex flex-column justify-content-center align-items-center" style="width: 100%; height: 100vh;">
+    <div class="border p-4 bg-white " style="width: 350px; border-radius: 10px;">
+        <h3 class="text-center pt-2 pb-3"> Taxpayer Portal</h3>
+        <form id="loginUserForm" method="post">
+            @Html.AntiForgeryToken()
+            <div class="form-group mb-3">
+                <label for="username">Username <em>*</em></label>
+                <input class="form-control" type="text" id="Username" name="Username" asp-for="Username" required>
+                <span asp-validation-for="Username" class="text-danger"></span>
+
+            </div>
+            <div class="form-group mb-3">
+                <label for="password"> Password <em>*</em></label>
+                <input class="form-control" type="password" id="Password" name="Password" asp-for="Password" required>
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            <button onclick="login()" type="button" id="loginUser" class=" btn form-control custom-btn-primary shadow py-3">Login</button>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <script type="module" asp-append-version="true" src="/js/user.js"></script> 
+}
