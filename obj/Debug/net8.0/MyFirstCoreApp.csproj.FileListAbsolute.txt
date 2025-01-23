@@ -6,6 +6,7 @@ C:\workspace\c#\MyFirstCoreApp\obj\Debug\net8.0\MyFirstCoreApp.csproj.CoreCompil
 C:\workspace\c#\MyFirstCoreApp\obj\Debug\net8.0\MyFirstCoreApp.MvcApplicationPartsAssemblyInfo.cache
 C:\workspace\c#\MyFirstCoreApp\obj\Debug\net8.0\MyFirstCoreApp.RazorAssemblyInfo.cache
 C:\workspace\c#\MyFirstCoreApp\obj\Debug\net8.0\MyFirstCoreApp.RazorAssemblyInfo.cs
+C:\workspace\c#\MyFirstCoreApp\obj\Debug\net8.0\MyFirstCoreApp.sourcelink.json
 C:\workspace\c#\MyFirstCoreApp\bin\Debug\net8.0\appsettings.Development.json
 C:\workspace\c#\MyFirstCoreApp\bin\Debug\net8.0\appsettings.json
 C:\workspace\c#\MyFirstCoreApp\bin\Debug\net8.0\MyFirstCoreApp.staticwebassets.runtime.json

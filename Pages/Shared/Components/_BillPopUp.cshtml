@@ -1,0 +1,56 @@
+<!-- on success of bill generation starts-->
+<div class="modal fade modal-lg" id="billModal" tabindex="-1" role="dialog" aria-labelledby="billModalLabel"
+    aria-hidden="true" data-backdrop="static">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="billModalLabel">Bill Generation</h5>
+            </div>
+            <div class="modal-body">
+                <div class="alert alert-success"><b>Your Bill is processed successfully</b></div>
+
+                <div class="row mb-2">
+                    <div class="col-md-3">
+                        <b>Bill Number:</b>
+                    </div>
+                    <div class="col-md-9">
+                        <span id="bill-number"></span>
+                    </div>
+                </div>
+                <div class="row mb-2">
+                    <div class="col-md-3">
+                        <b>Bill Purpose:</b>
+                    </div>
+                    <div class="col-md-9">
+                        <span id="bill-purpose"></span>
+                    </div>
+                </div>
+                <div class="row mb-2">
+                    <div class="col-md-3">
+                        <b>Bill Agency:</b>
+                    </div>
+                    <div class="col-md-9">
+                        <span id="bill-agency"></span>
+                    </div>
+                </div>
+                <div class="row mb-2">
+                    <div class="col-md-3">
+                        <b>Bill Amount:</b>
+                    </div>
+                    <div class="col-md-9">
+                        <span id="bill-amount"></span>
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="modal-footer d-flex justify-content-start">
+                <a href="#" class="btn custom-btn-primary py-md-3" id='downloadBill'>Download Invoice
+                    Pdf</a>
+                <a href="#" class="btn btn-danger py-md-3" id='makePayment'>Make Payment Now</a>
+                <button type="button" class="btn btn-secondary py-md-3" id='cancelButton'>Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- on success of bill generation ends -->

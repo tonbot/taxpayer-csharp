@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "7MHEc+q3Nnu3uImFrynLjo8PlyVjnmYQKgR1GRmn4RM=",
+  "Hash": "9YOLmmeUMXTkk9eQvEeac9nyADO99LZVlsMeMMP13xk=",
   "Source": "MyFirstCoreApp",
   "BasePath": "_content/MyFirstCoreApp",
   "Mode": "Default",
@@ -1195,6 +1195,25 @@
       "OriginalItemSpec": "wwwroot\\lib\\bootstrap\\LICENSE"
     },
     {
+      "Identity": "C:\\workspace\\c#\\MyFirstCoreApp\\wwwroot\\lib\\datatables.min.js",
+      "SourceId": "MyFirstCoreApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\workspace\\c#\\MyFirstCoreApp\\wwwroot\\",
+      "BasePath": "_content/MyFirstCoreApp",
+      "RelativePath": "lib/datatables.min.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\lib\\datatables.min.js"
+    },
+    {
       "Identity": "C:\\workspace\\c#\\MyFirstCoreApp\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
       "SourceId": "MyFirstCoreApp",
       "SourceType": "Discovered",
@@ -1421,6 +1440,44 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\jquery\\LICENSE.txt"
+    },
+    {
+      "Identity": "C:\\workspace\\c#\\MyFirstCoreApp\\wwwroot\\lib\\select2.min.js",
+      "SourceId": "MyFirstCoreApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\workspace\\c#\\MyFirstCoreApp\\wwwroot\\",
+      "BasePath": "_content/MyFirstCoreApp",
+      "RelativePath": "lib/select2.min.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\lib\\select2.min.js"
+    },
+    {
+      "Identity": "C:\\workspace\\c#\\MyFirstCoreApp\\wwwroot\\lib\\sweetalert.js",
+      "SourceId": "MyFirstCoreApp",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\workspace\\c#\\MyFirstCoreApp\\wwwroot\\",
+      "BasePath": "_content/MyFirstCoreApp",
+      "RelativePath": "lib/sweetalert.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\lib\\sweetalert.js"
     }
   ]
 }

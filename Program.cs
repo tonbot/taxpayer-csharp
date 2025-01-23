@@ -7,9 +7,12 @@ builder.Services.AddRouting(options =>
     options.AppendTrailingSlash = false; // Optional: Prevent trailing slashes
 });
 
+
+
 //dependency injection configuration
 builder.Services.AddScoped<DatabaseHelper>();
 builder.Services.AddScoped<User>();
+builder.Services.AddScoped<Bill>();
 
 
 
@@ -25,6 +28,17 @@ if (!app.Environment.IsDevelopment())
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
+
+app.Use(async (context, next) =>
+{
+    var originalPath = context.Request.Path.Value;
+    if (originalPath != null && originalPath.Any(char.IsUpper))
+    {
+        context.Response.Redirect(originalPath.ToLowerInvariant());
+        return;
+    }
+    await next();
+});
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();

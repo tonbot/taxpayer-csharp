@@ -245,6 +245,10 @@
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
     },
     {
+      "Id": "C:\\workspace\\c#\\MyFirstCoreApp\\wwwroot\\lib\\datatables.min.js",
+      "PackagePath": "staticwebassets\\lib\\datatables.min.js"
+    },
+    {
       "Id": "C:\\workspace\\c#\\MyFirstCoreApp\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
       "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
     },
@@ -291,6 +295,14 @@
     {
       "Id": "C:\\workspace\\c#\\MyFirstCoreApp\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
+    },
+    {
+      "Id": "C:\\workspace\\c#\\MyFirstCoreApp\\wwwroot\\lib\\select2.min.js",
+      "PackagePath": "staticwebassets\\lib\\select2.min.js"
+    },
+    {
+      "Id": "C:\\workspace\\c#\\MyFirstCoreApp\\wwwroot\\lib\\sweetalert.js",
+      "PackagePath": "staticwebassets\\lib\\sweetalert.js"
     },
     {
       "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.MyFirstCoreApp.Microsoft.AspNetCore.StaticWebAssets.props",

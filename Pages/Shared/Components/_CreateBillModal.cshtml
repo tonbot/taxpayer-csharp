@@ -1,0 +1,56 @@
+<!-- Modal Structure -->
+<div class="modal fade" id="CreateModalBill" tabindex="-1" role="dialog" aria-labelledby="simpleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h5 class="modal-title" id="simpleModalLabel">Simple Modal</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <!-- Modal Body -->
+            <div class="modal-body">
+                <div class="d-flex justify-content-center py-2 bill-formwrapper">
+                    <form id="singleBillForm" method="post" class="py-3 px-md-4">
+                        <input type="hidden" value="<?= $id ?>" name="tax_id" required>
+                        <input type="hidden" value="1" name="type" required>
+
+                        <div class="form-group">
+                            <label for="agency">Who do you want to pay?</label>
+                            <div>
+                                <select id="agency" name="agency" class="form-control" required>
+                                    <!-- Options will be populated dynamically -->
+                                </select>
+                            </div>
+
+                        </div>
+
+                        <div class="form-group">
+                            <div class="row">
+                                <label for="revenueName">What do you want to pay for?</label>
+                            </div>
+                            <select id="revenueName" name="revenueName" class="form-control" required>
+                                <!-- Options will be populated dynamically -->
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="amount">How much are you paying?</label>
+                            <input type="number" id="amount" name="amount" class="form-control"
+                                placeholder="Enter Amount" required>
+                        </div>
+
+
+                        <div class="alert alert-dark mt-3" role="alert">
+                            Please verify the above information carefully before you proceed.
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
