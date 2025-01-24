@@ -8,17 +8,14 @@ $("#cancelButton").click(function () {
 
 
 window.fetchAgencyandRevenue = function () {
-  let requesData = {
-    z: "get_agencyRevenue"
-  };
-  sendAjaxRequest(requesData,getAgencyAndRevenueCallBack);
+  sendAjaxRequest({}, getAgencyAndRevenueCallBack, "/api/agency/agency-revenue");
 }
 
-window.loadData = function () {
+window.loadData = function (e) {
   let agencies = JSON.parse(localStorage.getItem("agencies"));
   let revenues = JSON.parse(localStorage.getItem("revenues"));
   if (!agencies || !revenues) {
-    fetchAgencyandRevenue();
+    fetchAgencyandRevenue(e);
   } else {
     populateAgencies(agencies);
   }
@@ -68,12 +65,8 @@ window.createBill = function () {
   if (!config.validateForm("singleBillForm")) {return;}
   let data = config.formData("singleBillForm");
   $('#loadingSpinner').removeClass('d-none');
-  let requesData = {
-    a: data,
-    z: "create-bill",
-  };
   $("#generateBill").prop("disabled", true);
-  sendAjaxRequest(requesData,createBillCallBack);
+  sendAjaxRequest(data,createBillCallBack,"/api/agency/agency-revenue");
 }
 
 

@@ -33,7 +33,7 @@
                 </div>
             </div>
 
-            <div class="row bg-white shadow-sm py-4 tableWrapper" id="historyTable">
+            <div class="row bg-white shadow-sm py-4 px-4 tableWrapper" id="historyTable">
                 <div class="alert alert-dark">
                     <i class="fa fa-info-circle fa-1x" aria-hidden="true"></i>
                     Please refresh the page if you have recently generated a bill. This is to capture the recent data.
@@ -83,10 +83,13 @@
 @await Html.PartialAsync("Shared/Components/_CreateBillModal")
 
 @section Scripts {
+    <script type="module" src="~/js/bill.js" asp-append-version="true"></script>
     <script>
-        $(document).ready(function () {
-            $('.bill-payment').addClass('active');
 
+        $(document).ready(function () {
+
+            $('.bill-payment').addClass('active');
+      
             const dataTable = $('#billHistoryTable').DataTable({
                 autoWidth: false,
                 columnDefs: [{
@@ -97,12 +100,14 @@
                 }]
             });
 
+            loadData();
+
             $("#openBillForm").click(function () {
                 $('#CreateModalBill').modal('show');
             });
 
             $('#cancelBillBtn').on('click', function () {
-                $('#addBillModal').modal('hide');
+                $('#CreateModalBill').modal('hide');
             });
         });
     </script>

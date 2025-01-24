@@ -11,7 +11,7 @@ public class SingleBillModel : PageModel
     private readonly ILogger<SingleBillModel> _logger;
 
     private readonly Bill _bill;
-    public List<BillModel> billsData { get; private set; }
+    public List<BillDataModel> billsData { get; private set; }
 
     public SingleBillModel(ILogger<SingleBillModel> logger, Bill bill)
     {
@@ -22,9 +22,9 @@ public class SingleBillModel : PageModel
     public void OnGet() {
          ResponseData result =  _bill.GetBillsByTaxId("single", "3000001");
         if(result.Code != 200)
-           billsData = new List<BillModel> ();
+           billsData = new List<BillDataModel> ();
         else
-           billsData = (List<BillModel>) result.Data;
+           billsData = (List<BillDataModel>) result.Data ?? new List<BillDataModel> ();
      }
 
     // public IActionResult OnPost([FromBody] CreateSingleBillModel Input)

@@ -3,13 +3,13 @@ import {sendRegistrationMailCallBack} from "./callBackFunction.js";
 
 
 //ajax request function
- window.sendAjaxRequest = function (requestData, callBack, inputObj={}, url='') {
+ window.sendAjaxRequest = function (requestData, callBack, url, inputObj={}) {
   let  forge = $('input[name="__RequestVerificationToken"').val();
   $.ajax({
     ...config.ajaxSettings,
     url: url,
     headers: {
-       "RequestVerificationToken":forge
+       "RequestVerificationToken":forge,
     },
     data: JSON.stringify(requestData),
     success: function(response){

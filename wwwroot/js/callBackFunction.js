@@ -110,9 +110,10 @@ export const updateIndividualCallBack = (response) => {
   }
 
  
-  export const getAgencyAndRevenueCallBack = (response) => {
+  export const getAgencyAndRevenueCallBack = (res) => {
+    console.log(res)
     try {
-      var res = JSON.parse(response);
+     
       if (res.code === 200) {
         let agencies = res.data.agencies;
         let revenues = res.data.revenues;

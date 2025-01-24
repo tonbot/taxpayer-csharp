@@ -13,6 +13,8 @@ builder.Services.AddRouting(options =>
 builder.Services.AddScoped<DatabaseHelper>();
 builder.Services.AddScoped<User>();
 builder.Services.AddScoped<Bill>();
+builder.Services.AddScoped<Agency>();
+
 
 
 
@@ -44,6 +46,10 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapControllers();
+});
 
 app.UseAuthorization();
 

@@ -61,7 +61,7 @@ em{
   border-color: var(--accent4-color) !important;
   box-shadow: none !important;
 }
-.select2-container {
+/* .select2-container {
   height: fit-content  !important;
 }
 
@@ -85,7 +85,7 @@ span.selection > span{
   display: flex !important;
   align-items: center !important;
   height: 38px !important;
- }
+ } */
 
 button {
   color: #000;

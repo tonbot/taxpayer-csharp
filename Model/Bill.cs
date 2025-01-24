@@ -1,7 +1,7 @@
 
 using MyFirstCoreApp.Pages;
 
-public class BillModel
+public class BillDataModel
 {
     public int id { get; set; }
     public string single_bill_num { get; set; }
@@ -30,7 +30,6 @@ public class Bill
     }
 
 
-    // Bill
     public ResponseData GetBillsByTaxId(string Type, string taxId)
     {
        if(Type == "single")
@@ -49,14 +48,14 @@ public class Bill
             WHERE b.tax_id = @TaxId 
             ORDER BY b.created_at DESC";
 
-        ResponseData result = _databaseHelper.Query<BillModel>(sql, new { TaxId = taxId });
+        ResponseData result = _databaseHelper.Query<BillDataModel>(sql, new { TaxId = taxId });
         return result;
     }
  
    public ResponseData GetBillsOfTypeHarmonized()
     {
         string sql = "SELECT * FROM sm_bills";
-        ResponseData result = _databaseHelper.Query<BillModel>(sql);
+        ResponseData result = _databaseHelper.Query<BillDataModel>(sql);
         return result;
     }
 

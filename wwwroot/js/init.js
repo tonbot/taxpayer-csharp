@@ -1,5 +1,5 @@
 
-    $(".select-2").select2({
+    $(".select-m").select2({
       width: "100%",
     });
   
