@@ -53,6 +53,7 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @if( Model.billsData != null){
                             @foreach (var bill in Model.billsData)
                             {
                                 <tr>
@@ -67,7 +68,7 @@
                                         <!-- Action buttons or content can be added here -->
                                     </td>
                                 </tr>
-                            }
+                            }}
                         </tbody>
                     </table>
                 </div>
@@ -87,9 +88,7 @@
     <script>
 
         $(document).ready(function () {
-
             $('.bill-payment').addClass('active');
-      
             const dataTable = $('#billHistoryTable').DataTable({
                 autoWidth: false,
                 columnDefs: [{

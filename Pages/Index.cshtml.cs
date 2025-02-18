@@ -6,20 +6,20 @@ namespace MyFirstCoreApp.Pages;
 
 public class IndexModel : PageModel
 {
-    private readonly ILogger<IndexModel> _logger;
+    private readonly ILogger<TaxPayerModel> _logger;
 
-    private readonly User _user;
+    private readonly TaxPayer _taxPayer;
 
-    public IndexModel(ILogger<IndexModel> logger, User user)
+    public IndexModel(ILogger<TaxPayerModel> logger, TaxPayer taxPayer)
     {
         _logger = logger;
-        _user = user;
+        _taxPayer = taxPayer;
     }
 
     public void OnGet() { }
     public IActionResult OnPost([FromBody] LoginDataModel Input)
     {
-       ResponseData result =  _user.Login(Input);
+       ResponseData result =  _taxPayer.Login(Input);
         return new JsonResult(result);
     }
 }
@@ -27,6 +27,6 @@ public class IndexModel : PageModel
 
 public class LoginDataModel
 {
-    public String Username { get; set; }
-    public String password { get; set; }
+    public required string TaxId { get; set; }
+    public required string Password { get; set; }
 }

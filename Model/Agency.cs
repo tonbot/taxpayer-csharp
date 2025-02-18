@@ -3,17 +3,17 @@ using MyFirstCoreApp.Pages;
 
 public class AgencyDataModel
 {
-    public int id { get; set; }
-    public string agency_name { get; set; }
-    public string agency_code { get; set; }
+    public int? id { get; set; }
+    public string? agency_name { get; set; }
+    public string? agency_code { get; set; }
 }
 
 public class RevenueDataModel
 {
-    public int id { get; set; }
-    public string rev_code { get; set; }
-    public string rev_name { get; set; }
-    public string agency_code { get; set; }
+    public int? id { get; set; }
+    public string? rev_code { get; set; }
+    public string? rev_name { get; set; }
+    public string? agency_code { get; set; }
 }
 
 

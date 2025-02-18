@@ -2,7 +2,7 @@
   "Files": [
     {
       "Id": "C:\\workspace\\c#\\MyFirstCoreApp\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\MyFirstCoreApp.bundle.scp.css",
-      "PackagePath": "staticwebassets\\MyFirstCoreApp.bundle.scp.css"
+      "PackagePath": "staticwebassets\\MyFirstCoreApp.5oras09e8p.bundle.scp.css"
     },
     {
       "Id": "C:\\workspace\\c#\\MyFirstCoreApp\\wwwroot\\css\\larger.css",
@@ -303,6 +303,10 @@
     {
       "Id": "C:\\workspace\\c#\\MyFirstCoreApp\\wwwroot\\lib\\sweetalert.js",
       "PackagePath": "staticwebassets\\lib\\sweetalert.js"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.MyFirstCoreApp.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
     },
     {
       "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.MyFirstCoreApp.Microsoft.AspNetCore.StaticWebAssets.props",

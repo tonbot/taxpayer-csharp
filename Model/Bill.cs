@@ -3,18 +3,18 @@ using MyFirstCoreApp.Pages;
 
 public class BillDataModel
 {
-    public int id { get; set; }
-    public string single_bill_num { get; set; }
-    public string combined_bill_num { get; set; }
-    public int bill_status { get; set; }
-    public int bill_type { get; set; }
-    public string tax_id { get; set; }
-    public string agency_code { get; set; }
-    public string rev_name { get; set; }
-    public string rev_code { get; set; }
-    public string amount { get; set; }
-    public string created_at { get; set; }
-    public string updated_at { get; set; }
+    public int? id { get; set; }
+    public string? single_bill_num { get; set; }
+    public string? combined_bill_num { get; set; }
+    public int? bill_status { get; set; }
+    public int? bill_type { get; set; }
+    public string? tax_id { get; set; }
+    public string? agency_code { get; set; }
+    public string? rev_name { get; set; }
+    public string? rev_code { get; set; }
+    public string? amount { get; set; }
+    public string? created_at { get; set; }
+    public string? updated_at { get; set; }
 }
 
 public class Bill
@@ -29,7 +29,6 @@ public class Bill
         _databaseHelper = databaseHelper;
     }
 
-
     public ResponseData GetBillsByTaxId(string Type, string taxId)
     {
        if(Type == "single")
@@ -38,6 +37,7 @@ public class Bill
         return GetBillsOfTypeHarmonized();
 
     }
+
       public ResponseData GetBillsOfTypeSingle(string taxId)
     {
         string sql = $@"

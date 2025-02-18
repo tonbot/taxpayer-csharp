@@ -1,29 +1,38 @@
 var builder = WebApplication.CreateBuilder(args);
 
+// Add session services
+builder.Services.AddSession(options =>
+{
+    options.IdleTimeout = TimeSpan.FromMinutes(30); // Session timeout
+    options.Cookie.HttpOnly = true;  // Cookie is accessible only via HTTP
+    options.Cookie.IsEssential = true; // Make the cookie essential for the app
+});
 
+// Add distributed memory cache for session data
+builder.Services.AddDistributedMemoryCache();
+
+// Add HTTP context accessor
+builder.Services.AddHttpContextAccessor();
+
+// Configure routing options
 builder.Services.AddRouting(options =>
 {
     options.LowercaseUrls = true; // Enforces lowercase URLs
     options.AppendTrailingSlash = false; // Optional: Prevent trailing slashes
 });
 
-
-
-//dependency injection configuration
+// Dependency injection configuration
 builder.Services.AddScoped<DatabaseHelper>();
-builder.Services.AddScoped<User>();
+builder.Services.AddScoped<TaxPayer>();
 builder.Services.AddScoped<Bill>();
 builder.Services.AddScoped<Agency>();
 
-
-
-
-// Add services to the container.
+// Add Razor Pages services
 builder.Services.AddRazorPages();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+// Configure the HTTP request pipeline
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Error");
@@ -31,6 +40,7 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
+// Middleware to enforce lowercase URLs
 app.Use(async (context, next) =>
 {
     var originalPath = context.Request.Path.Value;
@@ -45,14 +55,12 @@ app.Use(async (context, next) =>
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
+// Ensure the middleware is in the correct order
 app.UseRouting();
-app.UseEndpoints(endpoints =>
-{
-    endpoints.MapControllers();
-});
-
+app.UseSession();
 app.UseAuthorization();
 
-app.MapRazorPages();
+// Map endpoints
+app.MapRazorPages(); 
 
 app.Run();

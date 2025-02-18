@@ -20,7 +20,7 @@ public class DatabaseHelper
     }
 
     // this is use to on select statement
-    public ResponseData Query<T>(string sql, object parameters = null)
+    public ResponseData Query<T>(string sql, object? parameters = null)
     {
         try
         {
@@ -45,6 +45,7 @@ public class DatabaseHelper
         }
         catch (Exception ex)
         {
+            Console.WriteLine(ex);
             return Utils.GetResponseData(500,"Internal Server Error",null);
         }
     }

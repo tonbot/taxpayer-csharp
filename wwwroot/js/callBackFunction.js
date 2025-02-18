@@ -1,13 +1,12 @@
 export const loginCallBack = (response) => {
-  console.log(response);
+  // console.log(response);
   $('#loadingSpinner').addClass('d-none');
-  // var res = JSON.parse(response);
-  // if (res.code === 200) {
-  //   messageAlert(res.message, "success");
-  //   window.location.href = res.data;
-  // } else {
-  //   messageAlert(res.message, "error");
-  // }
+  if (response.code === 200) {
+    messageAlert(response.message, "success");
+    window.location.href = 'dashboard';
+  } else {
+    messageAlert(response.message, "error");
+  }
 };
 
 export const photoUploadCallBack = (response) => {
