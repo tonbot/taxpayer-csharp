@@ -21,6 +21,9 @@ builder.Services.AddRouting(options =>
     options.AppendTrailingSlash = false; // Optional: Prevent trailing slashes
 });
 
+//this is for controllers mapping
+builder.Services.AddControllers();
+
 // Dependency injection configuration
 builder.Services.AddScoped<DatabaseHelper>();
 builder.Services.AddScoped<TaxPayer>();
@@ -62,5 +65,6 @@ app.UseAuthorization();
 
 // Map endpoints
 app.MapRazorPages(); 
+app.MapControllers(); 
 
 app.Run();

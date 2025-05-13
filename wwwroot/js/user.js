@@ -8,6 +8,12 @@ window.login = function () {
   sendAjaxRequest(data, loginCallBack, '/');
 };
 
+window.register = function () {
+  if (!config.validateForm("registerForm")) return;
+  let data = config.formData("registerForm");
+  sendAjaxRequest(data, loginCallBack, '/register');
+};
+
 // upload tax payer photo 
 $(".uploadNow").on("click", function (e) {
   e.preventDefault();

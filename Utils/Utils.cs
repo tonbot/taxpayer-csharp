@@ -16,7 +16,10 @@ public static class Utils
         return isPasswordValid;
     }
 
-
+    public static string GenerateBcrptHashPassword(string password)
+    {
+        return BCrypt.Net.BCrypt.HashPassword(password);
+    }
 
     public static string DTrim(string data)
     {
@@ -32,10 +35,39 @@ public static class Utils
 
         return data;
     }
-   
 
 
+    public static string GenerateUniqueBillNumber()
+    {
+        // Get the current timestamp
+        long timestamp = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
+        string timestampStr = timestamp.ToString();
+
+        // Generate a random 6-digit number
+        Random random = new Random();
+        int randomDigit = random.Next(100000, 1000000);
+
+        // Combine timestamp and random number
+        string combined = timestampStr + randomDigit;
+
+        // Shuffle the combined string
+        char[] array = combined.ToCharArray();
+        Random rng = new Random();
+        for (int i = array.Length - 1; i > 0; i--)
+        {
+            int j = rng.Next(i + 1);
+            (array[i], array[j]) = (array[j], array[i]);
+        }
+
+        // Take the first 7 characters as the bill number
+        string billNumber = new string(array).Substring(0, 7);
+        return billNumber;
+    }
 }
+
+
+
+
 public class ResponseData
 {
     public required int Code { get; set; }

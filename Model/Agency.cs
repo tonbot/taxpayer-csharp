@@ -31,7 +31,6 @@ public class Agency
 
     }
 
-
     public ResponseData GetAgency()
     {
         string sql = $@"SELECT * FROM {TblDef.AGENCY_TBL}";

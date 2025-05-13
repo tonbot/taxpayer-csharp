@@ -11,13 +11,13 @@
             <!-- Modal Body -->
             <div class="modal-body">
                 <form id="singleBillForm" method="post" class="py-3 px-md-4">
-                    <input type="hidden" value="<?= $id ?>" name="tax_id" required>
-                    <input type="hidden" value="1" name="type" required>
+                    <input type="hidden" value="@Model.TaxId" name="tax_id" asp-for="tax_id"  required>
+                    <input type="hidden" value="1" name="type" asp-for="type" required>
 
                     <div class="form-group">
                         <label for="agency">Who do you want to pay?</label>
                         <div>
-                            <select id="agency" name="agency" class="form-control" required>
+                            <select id="agency" name="agency" class="form-control" asp-for="type" required>
                                 <!-- Options will be populated dynamically -->
                             </select>
                         </div>
@@ -28,7 +28,7 @@
                         <div class="row">
                             <label for="revenueName">What do you want to pay for?</label>
                         </div>
-                        <select id="revenueName" name="revenueName" class="form-control" required>
+                        <select id="revenueName" name="revenueName" class="form-control" asp-for="revenueName" required>
                             <!-- Options will be populated dynamically -->
                         </select>
                     </div>
@@ -36,7 +36,7 @@
                     <div class="form-group">
                         <label for="amount">How much are you paying?</label>
                         <input type="number" id="amount" name="amount" class="form-control" placeholder="Enter Amount"
-                            required>
+                            asp-for="amount" required>
                     </div>
 
                     <div class="alert alert-dark mt-3" role="alert">

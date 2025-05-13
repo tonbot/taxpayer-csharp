@@ -66,7 +66,7 @@ window.createBill = function () {
   let data = config.formData("singleBillForm");
   $('#loadingSpinner').removeClass('d-none');
   $("#generateBill").prop("disabled", true);
-  sendAjaxRequest(data,createBillCallBack,"/api/agency/agency-revenue");
+  sendAjaxRequest(data, createBillCallBack, "/bill/single/");
 }
 
 

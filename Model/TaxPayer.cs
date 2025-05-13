@@ -4,6 +4,7 @@ using MyFirstCoreApp.Pages;
 using System;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
+using static MyFirstCoreApp.Pages.RegisterModel;
 
 
 
@@ -23,34 +24,36 @@ public class TaxPayerLoginModel
 }
 
 
+#pragma warning disable CA1050 // Declare types in namespaces
 public class TaxPayerModel
+
 {
-    public int? id { get; set; }
-    public string? fname { get; set; }
-    public string? mname { get; set; }
-    public string? lname { get; set; }
-    public string? email { get; set; }
-    public string? sex { get; set; }
-    public string? phone { get; set; }
-    public string? phone1 { get; set; }
-    public string? phone2 { get; set; }
-    public string? dob { get; set; }
-    public string? house_no { get; set; }
-    public string? address { get; set; }
-    public string? town { get; set; }
-    public string? lga { get; set; }
-    public string? tax_station { get; set; }
-    public string? nin { get; set; }
-    public string? jtb_tin { get; set; }
-    public string? tax_id { get; set; }
-    public string? image_name { get; set; }
-    public string? mime_type { get; set; }
-    public string? reg_type { get; set; }
-    public string? org_name { get; set; }
-    public string? rc_no { get; set; }
-    public string? password { get; set; }
-    public string? contact_name { get; set; }
-    public DateTime? created_at { get; set; }
+    public int? Id { get; set; }
+    public string? Fname { get; set; }
+    public string? Mname { get; set; }
+    public string? Lname { get; set; }
+    public string? Email { get; set; }
+    public string? Sex { get; set; }
+    public string? Phone { get; set; }
+    public string? Phone1 { get; set; }
+    public string? Phone2 { get; set; }
+    public string? Dob { get; set; }
+    public string? House_no { get; set; }
+    public string? Address { get; set; }
+    public string? Town { get; set; }
+    public string? Lga { get; set; }
+    public string? Tax_station { get; set; }
+    public string? Nin { get; set; }
+    public string? Jtb_tin { get; set; }
+    public string? Tax_id { get; set; }
+    public string? Image_name { get; set; }
+    public string? Mime_type { get; set; }
+    public string? Reg_type { get; set; }
+    public string? Org_name { get; set; }
+    public string? Rc_no { get; set; }
+    public string? Password { get; set; }
+    public string? Contact_name { get; set; }
+    public DateTime? Created_at { get; set; }
 
 }
 
@@ -88,7 +91,6 @@ public class TaxPayer
             // conver the the result object to list
            var DataArray = (List<TaxPayerLoginModel>?)result.Data ?? new List<TaxPayerLoginModel>();
 
-            
             // verify the taxpayer hash password
             if (!Utils.VerifyBcrptHashPassword(Utils.DTrim(Input.Password), DataArray[0].password)) 
                 return Utils.GetResponseData(result.Code, "TaxId/Password in not correct", null);
@@ -100,7 +102,30 @@ public class TaxPayer
             return result;
     }
 
+    public ResponseData Register(TaxpayerInputModel model)
+    {
+        // Hash the password before storing
+        model.Password = Utils.GenerateBcrptHashPassword(model.Password ?? "");
+     
 
+        string sql = $@"
+            INSERT INTO {TblDef.TAXPAYER_TBL} (
+                fname, mname, lname, email, sex, phone, phone1, phone2, 
+                dob, house_no, address, town, lga, tax_station, nin, 
+                jtb_tin, tax_id, image_name, mime_type, reg_type, 
+                org_name, rc_no, password, contact_name, created_at
+            ) VALUES (
+                @fname, @mname, @lname, @email, @sex, @phone, @phone1, @phone2,
+                @dob, @house_no, @address, @town, @lga, @tax_station, @nin,
+                @jtb_tin, @tax_id, @image_name, @mime_type, @reg_type,
+                @org_name, @rc_no, @password, @contact_name, @created_at
+            )";
+
+        int result = _databaseHelper.Execute(sql, model);
+        if (result <= 0)
+            return Utils.GetResponseData(500, "Registration failed", result);
+        return Utils.GetResponseData(200, "Registration successful", result);
+    }
 
  private bool SetSession(HttpContext? context , List<TaxPayerLoginModel> user)
     {

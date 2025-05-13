@@ -1,67 +1,157 @@
-@page 
+@page
 @namespace MyFirstCoreApp.Pages
 @model DashboardModel
 @{
     Layout = "_Layout";
-    ViewData["Title"] = "Login Page";
+    ViewData["Title"] = "Dashboard";
+}
+@section Styles {
+    <style>
+        .stat-card {
+            background: white;
+            border-radius: 1rem;
+            padding: 1.5rem;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .stat-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .stat-details h3 {
+            margin: 0;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .feature-card {
+            background: white;
+            border-radius: 1rem;
+            padding: 1.5rem;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .icon-wrapper {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .bg-primary-soft {
+            background-color: rgba(13, 110, 253, 0.1);
+            color: #0d6efd;
+        }
+
+        .bg-success-soft {
+            background-color: rgba(25, 135, 84, 0.1);
+            color: #198754;
+        }
+
+        .bg-warning-soft {
+            background-color: rgba(255, 193, 7, 0.1);
+            color: #ffc107;
+        }
+
+        .bg-info-soft {
+            background-color: rgba(13, 202, 240, 0.1);
+            color: #0dcaf0;
+        }
+
+        @@media (max-width: 768px) {
+            .dashboard-content {
+                padding: 1rem;
+            }
+        }
+    </style>
 }
 
+<!-- Main Content -->
+<div class="main-content p-4">
+    <h2 class="dashboard-title mb-4">Welcome Back, @User.Identity?.Name</h2>
 
-    <div class="mother-wrapper">
-        <!-- sider-bar starts -->
-        @await Html.PartialAsync("Shared/Components/_Sidebar")
-
-        <div class="content-wrapper">
-            <!-- desktop header -->
-             @await Html.PartialAsync("Shared/Components/_DesktopHeader")
-            <!-- mobile header -->
-              @await Html.PartialAsync("Shared/Components/_MobileHeader")
-    
-            <!-- dashboard main content starts  -->
-            <div class="main-content p-3 py-5 p-md-5">
-
-
-                <!-- action button -->
-                <div class="row mb-4 bg-white py-5 px-5  align-items-center app-container">
-
-                    <div class="col-md-4 mt-4">
-                        <a href="paye-tcc.php" class="text-decoration-none">
-                            <div class="card text-center shadow-sm py-3">
-                                <div class="card-body">
-                                    <i class="fa fa-certificate fa-3x text-secondary"></i>
-                                    <h5 class="mt-2">Tax Clearance Certificate</h5>
-                                </div>
-                            </div>
-                        </a>
+    <div class="quick-stats mb-5">
+        <div class="row g-4">
+            <div class="col-md-3 col-sm-6">
+                <div class="stat-card">
+                    <div class="stat-icon bg-primary-soft">
+                        <i class="bi bi-currency-dollar"></i>
                     </div>
-
-                    <div class="col-md-4 mt-4">
-                        <a href="single-bill.php" class="text-decoration-none">
-                            <div class="card text-center shadow-sm py-3">
-                                <div class="card-body">
-                                    <i class="fa fa-credit-card fa-3x text-danger"></i>
-                                    <h5 class="mt-2">Others Payments</h5>
-                                </div>
-                            </div>
-                        </a>
+                    <div class="stat-details">
+                        <h3>₦125,000</h3>
+                        <span>Total Tax Paid</span>
                     </div>
-
-                    <div class="col-md-4 mt-4">
-                        <a href="paye-filling.php" class="text-decoration-none">
-                            <div class="card text-center shadow-sm py-3">
-                                <div class="card-body">
-                                    <i class="fa fa-line-chart fa-3x text-primary"></i>
-                                    <h5 class="mt-2">E-Filling</h5>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-
                 </div>
-
-
             </div>
-            <!-- dashboard main content ends  -->
+            <div class="col-md-3 col-sm-6">
+                <div class="stat-card">
+                    <div class="stat-icon bg-success-soft">
+                        <i class="bi bi-file-text"></i>
+                    </div>
+                    <div class="stat-details">
+                        <h3>5</h3>
+                        <span>Active Returns</span>
+                    </div>
+                </div>
+            </div>
         </div>
-        <!-- content wrapper ends  -->
     </div>
+
+    <div class="action-cards">
+        <h4 class="section-title mb-4">Quick Actions</h4>
+        <div class="row g-4">
+            <div class="col-lg-4 col-md-6">
+                <div class="feature-card">
+                    <div class="icon-wrapper bg-primary-soft">
+                        <i class="bi bi-card-checklist"></i>
+                    </div>
+                    <h5>Tax Clearance Certificate</h5>
+                    <p class="text-muted">Request and download your TCC</p>
+                    <a href="/tcc" class="stretched-link"></a>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6">
+                <div class="feature-card">
+                    <div class="icon-wrapper bg-warning-soft">
+                        <i class="bi bi-cash-stack"></i>
+                    </div>
+                    <h5>Make Payment</h5>
+                    <p class="text-muted">Process tax and other payments</p>
+                    <a href="/payments" class="stretched-link"></a>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6">
+                <div class="feature-card">
+                    <div class="icon-wrapper bg-info-soft">
+                        <i class="bi bi-file-earmark-text"></i>
+                    </div>
+                    <h5>E-Filing</h5>
+                    <p class="text-muted">Submit your tax returns online</p>
+                    <a href="/filing" class="stretched-link"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

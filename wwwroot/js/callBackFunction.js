@@ -1,12 +1,12 @@
 export const loginCallBack = (response) => {
-  // console.log(response);
-  $('#loadingSpinner').addClass('d-none');
-  if (response.code === 200) {
-    messageAlert(response.message, "success");
-    window.location.href = 'dashboard';
-  } else {
-    messageAlert(response.message, "error");
-  }
+  console.log(response);
+  // $('#loadingSpinner').addClass('d-none');
+  // if (response.code === 200) {
+  //   messageAlert(response.message, "success");
+  //   window.location.href = 'dashboard';
+  // } else {
+  //   messageAlert(response.message, "error");
+  // }
 };
 
 export const photoUploadCallBack = (response) => {
@@ -110,9 +110,7 @@ export const updateIndividualCallBack = (response) => {
 
  
   export const getAgencyAndRevenueCallBack = (res) => {
-    console.log(res)
     try {
-     
       if (res.code === 200) {
         let agencies = res.data.agencies;
         let revenues = res.data.revenues;
@@ -223,31 +221,32 @@ export const updateIndividualCallBack = (response) => {
   
 
   export const createBillCallBack = (response) => {
-    $('#loadingSpinner').addClass('d-none');
-    try {
-      var res = JSON.parse(response);
-      if (res.code === 200) {
-        $('#addBillModal').modal('hide');
-        $("#downloadBill").attr("href", `invoice.php?id=${res.data}`); 
-        $("#makePayment").attr("href", `payment-gateway.php?id=${res.data}`);
-        $("#bill-number").text(res.data);
-        $("#bill-purpose").text($("#revenueName option:selected").text());
-        $("#bill-agency").text($("#agency option:selected").text());
-        $("#bill-amount").text($("#amount").val());
-        $("#yourSelectId option:selected").text();
-        $("#billModal").modal("show");
-        $("#generateBill").prop("disabled", false);
-        $("#amount").val("");
+    // $('#loadingSpinner').addClass('d-none');
+    console.log(response);
+    // try {
+    //   var res = JSON.parse(response);
+    //   if (res.code === 200) {
+    //     $('#addBillModal').modal('hide');
+    //     $("#downloadBill").attr("href", `invoice.php?id=${res.data}`); 
+    //     $("#makePayment").attr("href", `payment-gateway.php?id=${res.data}`);
+    //     $("#bill-number").text(res.data);
+    //     $("#bill-purpose").text($("#revenueName option:selected").text());
+    //     $("#bill-agency").text($("#agency option:selected").text());
+    //     $("#bill-amount").text($("#amount").val());
+    //     $("#yourSelectId option:selected").text();
+    //     $("#billModal").modal("show");
+    //     $("#generateBill").prop("disabled", false);
+    //     $("#amount").val("");
 
-      } else {
-        messageAlert(res.message, "error");
-        $("#generateBill").prop("disabled", false);
-      }
-    } catch (e) {
-      messageAlert("Invalid response format", "error");
-      console.error("JSON Parse Error: ", response);
-      $("#generateBill").prop("disabled", false);
-    }
+    //   } else {
+    //     messageAlert(res.message, "error");
+    //     $("#generateBill").prop("disabled", false);
+    //   }
+    // } catch (e) {
+    //   messageAlert("Invalid response format", "error");
+    //   console.error("JSON Parse Error: ", response);
+    //   $("#generateBill").prop("disabled", false);
+    // }
   }
 
 

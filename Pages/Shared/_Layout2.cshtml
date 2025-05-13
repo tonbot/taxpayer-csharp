@@ -20,26 +20,10 @@
     <style>
         /* Dashboard Styles */
         .mother-wrapper {
-            display: grid;
-            grid-template-columns: 200px 1fr;
-            grid-template-rows: 1fr;
+            display: flex;
             min-height: 100vh;
             background-color: #f8f9fa;
-            height: fit-content;
-        }
-
-        .dashboard-content {
-            padding: 2rem;
-        }
-
-        .dashboard-title {
-            color: #2c3345;
-            font-weight: 600;
-        }
-
-        .new-style {
-            font-size: 1.2rem;
-            color: #007bff;
+            justify-content: center;
         }
     </style>
     @await RenderSectionAsync("Styles", required: false)
@@ -51,29 +35,10 @@
     </form>
 
     <div class="mother-wrapper">
-        <!-- Sidebar -->
-        @await Html.PartialAsync("Shared/Components/_Sidebar")
-
-        <div class="dashboard-content">
-            <!-- Headers -->
-            @await Html.PartialAsync("Shared/Components/_DesktopHeader")
-            @await Html.PartialAsync("Shared/Components/_MobileHeader")
-
-            @RenderBody()
-            <!-- Footer -->
-            <footer>
-                <div class="container">
-                    &copy; 2025 - MyFirstCoreApp - <a asp-area="" asp-page="/Privacy">Privacy</a>
-                </div>
-            </footer>
-        </div>
-
+        @RenderBody()
     </div>
 
-
-
-
-
+  
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/lib/datatables.min.js"></script>

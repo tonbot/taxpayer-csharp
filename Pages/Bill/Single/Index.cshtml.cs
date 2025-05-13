@@ -14,6 +14,7 @@ public class SingleBillModel : PageModel
     public List<BillDataModel>? billsData { get; private set; }
 
     public required string  Username { get; set; }
+    public required string  TaxId { get; set; }
 
     public SingleBillModel(ILogger<SingleBillModel> logger, Bill bill)
     {
@@ -23,6 +24,7 @@ public class SingleBillModel : PageModel
 
     public void OnGet() {
         Username = HttpContext.Session.GetString("fname") ?? "Guest";
+        TaxId = HttpContext.Session.GetString("tax_id") ?? "0";
 
          ResponseData result =  _bill.GetBillsByTaxId("single", "3000001");
         if(result.Code != 200)
@@ -31,11 +33,19 @@ public class SingleBillModel : PageModel
            billsData = (List<BillDataModel>?) result.Data ?? new List<BillDataModel> ();
      }
 
-    // public IActionResult OnPost([FromBody] CreateSingleBillModel Input)
-    // {
-    //    ResponseData result =  _bill.Create(Input);
-    //     return new JsonResult(result);
-    // }
+    public IActionResult OnPost([FromBody] SingleBillDTO formData)
+    {
+        
+       ResponseData result =  _bill.CreateBill(formData);
+        return new JsonResult(result) ;
+    }
 }
 
-
+public class SingleBillDTO
+{
+  public required string tax_id { get; set; }
+  public required string agency { get; set; }
+  public required string revenueName { get; set; }
+  public required string amount { get; set; }
+  
+}

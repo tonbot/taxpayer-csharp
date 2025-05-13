@@ -6,78 +6,94 @@
     ViewData["Title"] = "Login Page";
 }
 
-<div class="mother-wrapper">
-    <!-- Sidebar -->
-    @await Html.PartialAsync("Shared/Components/_Sidebar")
 
-    <div class="content-wrapper">
-        <!-- Headers -->
-        @await Html.PartialAsync("Shared/Components/_DesktopHeader")
-        @await Html.PartialAsync("Shared/Components/_MobileHeader")
-        <!-- Headers end -->
 
-        <!-- Main content -->
-        <div class="main-content p-3 py-5 p-md-5">
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="dashboard.php">Dashboard</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Bill Payment</li>
-                </ol>
-            </nav>
+<!-- Main content -->
+<div class="main-content p-3 py-5 p-md-5">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="dashboard.php">Dashboard</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Bill Payment</li>
+        </ol>
+    </nav>
 
-            <div class="row mb-4 px-4 bg-white">
-                <div class="page-title d-flex justify-content-between">
-                    <h1>🚀 Bill Payment</h1>
-                    <button type="button" id="openBillForm" class="btn custom-btn-primary shadow py-md-3 m-3">Open
-                        Payment Form</button>
-                </div>
-            </div>
-
-            <div class="row bg-white shadow-sm py-4 px-4 tableWrapper" id="historyTable">
-                <div class="alert alert-dark">
-                    <i class="fa fa-info-circle fa-1x" aria-hidden="true"></i>
-                    Please refresh the page if you have recently generated a bill. This is to capture the recent data.
-                </div>
-                <div class="col">
-                    <table id="billHistoryTable" class="table table-striped table-bordered table-responsive">
-                        <thead>
-                            <tr>
-                                <th>S/n</th>
-                                <th>Bill Purpose</th>
-                                <th>Bill Number</th>
-                                <th>Tax ID</th>
-                                <th>Bill Amount</th>
-                                <th>Payment Status</th>
-                                <th>Created Date</th>
-                                <th>Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @if( Model.billsData != null){
-                            @foreach (var bill in Model.billsData)
-                            {
-                                <tr>
-                                    <td></td>
-                                    <td>@bill.rev_name</td>
-                                    <td>@bill.single_bill_num</td>
-                                    <td>@bill.tax_id</td>
-                                    <td>@bill.amount</td>
-                                    <td>@(bill.bill_status == 0 ? "Paid" : "Unpaid")</td>
-                                    <td>@bill.created_at</td>
-                                    <td>
-                                        <!-- Action buttons or content can be added here -->
-                                    </td>
-                                </tr>
-                            }}
-                        </tbody>
-                    </table>
-                </div>
-            </div>
+    <div class="row mb-4 px-4 bg-white">
+        <div class="page-title d-flex justify-content-between">
+            <h1>🚀 Bill Payment</h1>
+            <button type="button" id="openBillForm" class="btn custom-btn-primary shadow py-md-3 m-3">Open
+                Payment Form</button>
         </div>
-        <!-- Main content End -->
     </div>
+    
+    <!-- All bill Created table starts-->
+    <div class="row bg-white shadow-sm py-4 px-4 tableWrapper" id="historyTable">
+        <div class="alert alert-dark">
+            <i class="fa fa-info-circle fa-1x" aria-hidden="true"></i>
+            Please refresh the page if you have recently generated a bill. This is to capture the recent data.
+        </div>
+        <div class="col">
+            <table id="billHistoryTable" class="table table-striped table-bordered table-responsive">
+                <thead>
+                    <tr>
+                        <th>S/n</th>
+                        <th>Bill Purpose</th>
+                        <th>Bill Number</th>
+                        <th>Tax ID</th>
+                        <th>Bill Amount</th>
+                        <th>Payment Status</th>
+                        <th>Created Date</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model.billsData != null)
+                    {
+                        @foreach (var bill in Model.billsData)
+                        {
+                            <tr>
+                                <td></td>
+                                <td>@bill.rev_name</td>
+                                <td>@bill.single_bill_num</td>
+                                <td>@bill.tax_id</td>
+                                <td>@bill.amount</td>
+                                <td>
+                                    @if (bill.bill_status == 0)
+                                    {
+                                        <span class="badge bg-danger">Unpaid</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="badge bg-success">Paid</span>
+                                    }
+                                </td>
 
+                                <td>@bill.created_at</td>
+                                <td>
+                                    @if (bill.bill_status == 0)
+                                    {
+                                        <a href="@Url.Content("~/invoice?id=" + bill.single_bill_num)"
+                                            class="badge bg-secondary p-2 mr-2">Invoice</a>
+                                        <a href="@Url.Content("~/payment-gateway?id=" + bill.single_bill_num)"
+                                            class="badge bg-danger p-2">Pay Me</a>
+                                    }
+                                    else
+                                    {
+                                        <a href="@Url.Content("~/receipt?id=" + bill.single_bill_num)" class="badge bg-success p-2"
+                                            target="_blank">Receipt</a>
+                                    }
+                                </td>
+
+
+                            </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!-- All bill Created table ends-->
 </div>
+<!-- Main content End -->
 
 @* modal  *@
 @await Html.PartialAsync("Shared/Components/_BillPopUp")

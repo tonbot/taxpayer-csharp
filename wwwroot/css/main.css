@@ -31,6 +31,7 @@ body {
   font-weight: 400;
   width: 100vw;
   background-color: var(--secondary-color);
+  height: fit-content;
   overflow-x: hidden;
 }
 
@@ -260,9 +261,7 @@ ul {
   list-style: none;
 }
 
-.mother-wrapper {
-  height: 100vh;
-}
+
 
 .nav-link .fa {
   padding-right: 10px;
@@ -296,9 +295,11 @@ ul {
 .sidebar-wrapper {
   background: var(--accent7-color);
   font-size: 1em;
+  /* border-right: 4px solid #e5e5e5; */
+  min-height: 100vh;
   height: 100%;
-  border-right: 4px solid #e5e5e5;
 }
+
 .sidebar-wrapper .nav-link {
   color: var(--accent-color);
   border-radius: 5px;
@@ -354,10 +355,7 @@ ul {
 }
 .main-content {
   font-size: 1em;
-  background-image: url('/taxpayer/images/mainbg2.webp');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+  background-color: #f0f0f0;
 }
 
 .main-content > h2 {
@@ -504,9 +502,6 @@ border-radius: 10px;
     DASHBOARD STARTS SMALL SCREEN
     ------------------------
     --------*/
-  .mother-wrapper {
-    height: 100vh;
-  }
 
   .desktop-header {
     display: none;
@@ -541,11 +536,6 @@ border-radius: 10px;
 
   .sidebar-wrapper {
     height: 100%;
-    width: 250px;
-    max-width: 250px;
-    position: absolute;
-    left: -250px;
-    z-index: 10000;
     /* display: none; */
   }
 

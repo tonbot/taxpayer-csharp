@@ -1,7 +1,7 @@
 using MySql.Data.MySqlClient;
 using System.Data;
 using Dapper;
- 
+
 //  namespace MyFirstCoreApp.Database;
 
 
@@ -9,7 +9,7 @@ public class DatabaseHelper
 {
     private readonly string _connectionString;
 
-    public DatabaseHelper( )
+    public DatabaseHelper()
     {
         _connectionString = "server=localhost;database=smart_revenue;user=root;password=";
     }
@@ -28,15 +28,15 @@ public class DatabaseHelper
             {
                 //open connection
                 connection.Open();
-                
-                // validate sql string 
-                if(string.IsNullOrWhiteSpace(sql))
-                    return Utils.GetResponseData(204,"Invalid Query", null);
-             
-               //Execute sql query 
-               var QueryResults  = connection.Query<T>(sql, parameters);
 
-               //return no record found on if no result found
+                // validate sql string 
+                if (string.IsNullOrWhiteSpace(sql))
+                    return Utils.GetResponseData(204, "Invalid Query", null);
+
+                //Execute sql query 
+                var QueryResults = connection.Query<T>(sql, parameters);
+
+                //return no record found on if no result found
                 if (!QueryResults.Any())
                     return Utils.GetResponseData(204, "No Record Found", null);
                 else
@@ -46,19 +46,37 @@ public class DatabaseHelper
         catch (Exception ex)
         {
             Console.WriteLine(ex);
-            return Utils.GetResponseData(500,"Internal Server Error",null);
+            return Utils.GetResponseData(500, "Internal Server Error", null);
         }
     }
 
     // // this is used for insert or delete or update operations 
-    // public int Execute(string sql, object parameters = null)
-    // {
-    //     using (var connection = GetConnection())
-    //     {
-    //         connection.Open();
-    //         return connection.Execute(sql, parameters);
-    //     }
-    // }
+    public int Execute(string sql, object parameters = null)
+    {
+        try
+        {
+            using (var connection = GetConnection())
+            {
+                connection.Open();
+
+                // Validate the SQL string
+                if (string.IsNullOrWhiteSpace(sql))
+                {
+                    Console.WriteLine("Invalid SQL query.");
+                    return 0;
+                }
+
+                // Execute the SQL statement (insert/update/delete)
+                return connection.Execute(sql, parameters);
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Database operation failed: {ex.Message}");
+            return 0;
+        }
+    }
+
 
 
 }

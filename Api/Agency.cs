@@ -14,23 +14,6 @@ public class AgencyController : ControllerBase
          _agency = agency;
     }
 
-    // [HttpPost("all")]
-    // public IActionResult PostFetchAgencyAll()
-    // {
-    //     _logger.LogInformation("Fetching all agencies.");
-
-    //     // Example response
-    //     return Ok(new { success = true, message = "Fetched all agencies.", data = "yui" });
-    // }
-
-    // [HttpPost("revenue")]
-    // public IActionResult PostFetchRevenueAll()
-    // {
-    //     _logger.LogInformation("Fetching all revenue.");
-
-    //     return Ok(new { success = true, message = "Fetched all revenue.", data = "yui" });
-    // }
-
     [HttpPost("agency-revenue")]
     public IActionResult PostFetchRevenueAndAgency()
     {
