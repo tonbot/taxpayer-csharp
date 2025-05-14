@@ -1,12 +1,9 @@
-
 using MyFirstCoreApp.Pages;
 
 using System;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
 using static MyFirstCoreApp.Pages.RegisterModel;
-
-
 
 
 public class TaxPayerLoginModel
@@ -23,10 +20,8 @@ public class TaxPayerLoginModel
     public string? password { get; set; }
 }
 
-
 #pragma warning disable CA1050 // Declare types in namespaces
 public class TaxPayerModel
-
 {
     public int? Id { get; set; }
     public string? Fname { get; set; }
@@ -62,16 +57,15 @@ public class TaxPayer
 
     private readonly ILogger<IndexModel> _logger;
     private readonly DatabaseHelper _databaseHelper;
-        private readonly IHttpContextAccessor _httpContextAccessor;
+    private readonly IHttpContextAccessor _httpContextAccessor;
 
 
-    public TaxPayer(ILogger<IndexModel> logger, DatabaseHelper databaseHelper, IHttpContextAccessor httpContextAccessor)
+        public TaxPayer(ILogger<IndexModel> logger, DatabaseHelper databaseHelper, IHttpContextAccessor httpContextAccessor)
     {
-        _logger = logger;
-        _databaseHelper = databaseHelper;
-           _httpContextAccessor = httpContextAccessor;
+        _logger = logger ?? throw new ArgumentNullException(nameof(logger));
+        _databaseHelper = databaseHelper ?? throw new ArgumentNullException(nameof(databaseHelper));
+        _httpContextAccessor = httpContextAccessor ?? throw new ArgumentNullException(nameof(httpContextAccessor));
     }
-
 
     // Login user 
     public ResponseData Login(LoginDataModel Input)
@@ -104,27 +98,38 @@ public class TaxPayer
 
     public ResponseData Register(TaxpayerInputModel model)
     {
-        // Hash the password before storing
-        model.Password = Utils.GenerateBcrptHashPassword(model.Password ?? "");
+        if (model == null)
+        {
+            _logger.LogError("Registration failed: Model is null");
+            return Utils.GetResponseData(500, "Registration failed: Invalid input", null);
+        }
+        try
+        {
+            // Hash the password before storing
+            model.Password = Utils.GenerateBcrptHashPassword(model.Password ?? "");
      
+            string sql = $@"
+                    INSERT INTO {TblDef.TAXPAYER_TBL} (
+                        fname, lname, email, phone, sex, password
+                    ) VALUES (
+                        @FirstName, @LastName, @Email, @Phone, @Sex, @Password
+                    )";
 
-        string sql = $@"
-            INSERT INTO {TblDef.TAXPAYER_TBL} (
-                fname, mname, lname, email, sex, phone, phone1, phone2, 
-                dob, house_no, address, town, lga, tax_station, nin, 
-                jtb_tin, tax_id, image_name, mime_type, reg_type, 
-                org_name, rc_no, password, contact_name, created_at
-            ) VALUES (
-                @fname, @mname, @lname, @email, @sex, @phone, @phone1, @phone2,
-                @dob, @house_no, @address, @town, @lga, @tax_station, @nin,
-                @jtb_tin, @tax_id, @image_name, @mime_type, @reg_type,
-                @org_name, @rc_no, @password, @contact_name, @created_at
-            )";
+            int result = _databaseHelper.Execute(sql, model);
+            if (result <= 0)
+            {
+                _logger.LogWarning("Registration failed: No rows affected");
+                return Utils.GetResponseData(500, "Registration failed", result);
+            }
 
-        int result = _databaseHelper.Execute(sql, model);
-        if (result <= 0)
-            return Utils.GetResponseData(500, "Registration failed", result);
-        return Utils.GetResponseData(200, "Registration successful", result);
+            _logger.LogInformation("Registration successful for email: {Email}", model.Email);
+            return Utils.GetResponseData(200, "Registration successful: TaxId-30000001", result);
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Registration failed with exception");
+            return Utils.GetResponseData(500, "Registration failed: Internal error", null);
+        }
     }
 
  private bool SetSession(HttpContext? context , List<TaxPayerLoginModel> user)

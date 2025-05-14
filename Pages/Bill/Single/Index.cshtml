@@ -73,7 +73,7 @@
                                     {
                                         <a href="@Url.Content("~/invoice?id=" + bill.single_bill_num)"
                                             class="badge bg-secondary p-2 mr-2">Invoice</a>
-                                        <a href="@Url.Content("~/payment-gateway?id=" + bill.single_bill_num)"
+                                        <a href="@Url.Content("single/success?BillNumber=" + bill.single_bill_num + "&Amount=" + bill.amount + "&reference=" + bill.single_bill_num)"
                                             class="badge bg-danger p-2">Pay Me</a>
                                     }
                                     else

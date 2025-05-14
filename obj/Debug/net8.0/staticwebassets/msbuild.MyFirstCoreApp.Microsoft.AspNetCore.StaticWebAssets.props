@@ -120,8 +120,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>q3bbl25kou</Fingerprint>
-      <Integrity>9tlvECZAdtdgSLJwVZ8sVKAREwD23vULcjD+i3VR4DU=</Integrity>
+      <Fingerprint>izm5nyfssp</Fingerprint>
+      <Integrity>Ys2zMGcDTLGKV7Lfa9yyM9Mif9jeqviecRCpOgN4NjU=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\callBackFunction.js'))</OriginalItemSpec>
@@ -264,8 +264,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>pmos2wr64t</Fingerprint>
-      <Integrity>T6IfOnSgjROwREzbBttGkrY3XQ3VMPaVYvQSTWxPyGM=</Integrity>
+      <Fingerprint>wr17swdx35</Fingerprint>
+      <Integrity>vDBYT1vpBfEu58nerL9SiQ73q2hZmrTHPFLisujiEPU=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\user.js'))</OriginalItemSpec>

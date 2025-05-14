@@ -1,0 +1,50 @@
+@page
+@namespace MyFirstCoreApp.Pages
+@model SuccessModel
+
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Payment Success";
+}
+
+<div class="main-content p-3 py-5 p-md-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card shadow-sm border-0">
+                    <div class="card-body text-center p-5">
+                        <div class="mb-4">
+                            <i class="bi bi-check-circle-fill text-success" style="font-size: 5rem;"></i>
+                        </div>
+                        <h2 class="mb-4 text-success">Payment Successful!</h2>
+                        <p class="mb-4 text-muted">Your payment has been processed successfully.</p>
+                        
+                        <div class="payment-details bg-light p-4 rounded mb-4 text-start">
+                            <h5 class="mb-3">Payment Details</h5>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <p class="mb-2"><strong>Bill Number:</strong><br> @Model.BillNumber</p>
+                                    <p class="mb-2"><strong>Amount Paid:</strong><br> ₦@Model.Amount</p>
+                                </div>
+                                <div class="col-sm-6">
+                                    <p class="mb-2"><strong>Transaction Date:</strong><br> @Model.TransactionDate</p>
+                                    <p class="mb-2"><strong>Reference:</strong><br> @Model.Reference</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="action-buttons">
+                            <a href="@Url.Content($"~/receipt?id={Model.BillNumber}")" 
+                               class="btn btn-success me-2" target="_blank">
+                                <i class="bi bi-download me-2"></i>Download Receipt
+                            </a>
+                            <a href="@Url.Content("~/Bill/Single")" class="btn btn-outline-primary">
+                                <i class="bi bi-arrow-left me-2"></i>Back to Bills
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

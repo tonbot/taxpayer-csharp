@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "q+FYX181pGxOok+O7dp2piRfabCWy4LFGa/TItmwIsY=",
+  "Hash": "7MM+X5Bknj0O8KjkprBZyZFw4bVHO1TEc0Hv6+T2mbI=",
   "Source": "MyFirstCoreApp",
   "BasePath": "_content/MyFirstCoreApp",
   "Mode": "Default",
@@ -199,8 +199,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "q3bbl25kou",
-      "Integrity": "9tlvECZAdtdgSLJwVZ8sVKAREwD23vULcjD+i3VR4DU=",
+      "Fingerprint": "izm5nyfssp",
+      "Integrity": "Ys2zMGcDTLGKV7Lfa9yyM9Mif9jeqviecRCpOgN4NjU=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\callBackFunction.js"
@@ -367,8 +367,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "pmos2wr64t",
-      "Integrity": "T6IfOnSgjROwREzbBttGkrY3XQ3VMPaVYvQSTWxPyGM=",
+      "Fingerprint": "wr17swdx35",
+      "Integrity": "vDBYT1vpBfEu58nerL9SiQ73q2hZmrTHPFLisujiEPU=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\user.js"
@@ -2128,6 +2128,51 @@
       ]
     },
     {
+      "Route": "js/callBackFunction.izm5nyfssp.js",
+      "AssetFile": "C:\\workspace\\c#\\MyFirstCoreApp\\wwwroot\\js\\callBackFunction.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "9828"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"Ys2zMGcDTLGKV7Lfa9yyM9Mif9jeqviecRCpOgN4NjU=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 14 May 2025 08:44:10 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "izm5nyfssp"
+        },
+        {
+          "Name": "label",
+          "Value": "js/callBackFunction.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-Ys2zMGcDTLGKV7Lfa9yyM9Mif9jeqviecRCpOgN4NjU="
+        }
+      ]
+    },
+    {
       "Route": "js/callBackFunction.js",
       "AssetFile": "C:\\workspace\\c#\\MyFirstCoreApp\\wwwroot\\js\\callBackFunction.js",
       "Selectors": [],
@@ -2138,7 +2183,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "9529"
+          "Value": "9828"
         },
         {
           "Name": "Content-Type",
@@ -2146,11 +2191,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"9tlvECZAdtdgSLJwVZ8sVKAREwD23vULcjD+i3VR4DU=\""
+          "Value": "\"Ys2zMGcDTLGKV7Lfa9yyM9Mif9jeqviecRCpOgN4NjU=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 13 May 2025 16:05:00 GMT"
+          "Value": "Wed, 14 May 2025 08:44:10 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2160,52 +2205,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-9tlvECZAdtdgSLJwVZ8sVKAREwD23vULcjD+i3VR4DU="
-        }
-      ]
-    },
-    {
-      "Route": "js/callBackFunction.q3bbl25kou.js",
-      "AssetFile": "C:\\workspace\\c#\\MyFirstCoreApp\\wwwroot\\js\\callBackFunction.js",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "9529"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/javascript"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"9tlvECZAdtdgSLJwVZ8sVKAREwD23vULcjD+i3VR4DU=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Tue, 13 May 2025 16:05:00 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "q3bbl25kou"
-        },
-        {
-          "Name": "label",
-          "Value": "js/callBackFunction.js"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-9tlvECZAdtdgSLJwVZ8sVKAREwD23vULcjD+i3VR4DU="
+          "Value": "sha256-Ys2zMGcDTLGKV7Lfa9yyM9Mif9jeqviecRCpOgN4NjU="
         }
       ]
     },
@@ -2794,7 +2794,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "4074"
+          "Value": "4096"
         },
         {
           "Name": "Content-Type",
@@ -2802,11 +2802,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"T6IfOnSgjROwREzbBttGkrY3XQ3VMPaVYvQSTWxPyGM=\""
+          "Value": "\"vDBYT1vpBfEu58nerL9SiQ73q2hZmrTHPFLisujiEPU=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 13 May 2025 16:04:23 GMT"
+          "Value": "Wed, 14 May 2025 08:37:10 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2816,12 +2816,12 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-T6IfOnSgjROwREzbBttGkrY3XQ3VMPaVYvQSTWxPyGM="
+          "Value": "sha256-vDBYT1vpBfEu58nerL9SiQ73q2hZmrTHPFLisujiEPU="
         }
       ]
     },
     {
-      "Route": "js/user.pmos2wr64t.js",
+      "Route": "js/user.wr17swdx35.js",
       "AssetFile": "C:\\workspace\\c#\\MyFirstCoreApp\\wwwroot\\js\\user.js",
       "Selectors": [],
       "ResponseHeaders": [
@@ -2831,7 +2831,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "4074"
+          "Value": "4096"
         },
         {
           "Name": "Content-Type",
@@ -2839,11 +2839,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"T6IfOnSgjROwREzbBttGkrY3XQ3VMPaVYvQSTWxPyGM=\""
+          "Value": "\"vDBYT1vpBfEu58nerL9SiQ73q2hZmrTHPFLisujiEPU=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Tue, 13 May 2025 16:04:23 GMT"
+          "Value": "Wed, 14 May 2025 08:37:10 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2853,7 +2853,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "pmos2wr64t"
+          "Value": "wr17swdx35"
         },
         {
           "Name": "label",
@@ -2861,7 +2861,7 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-T6IfOnSgjROwREzbBttGkrY3XQ3VMPaVYvQSTWxPyGM="
+          "Value": "sha256-vDBYT1vpBfEu58nerL9SiQ73q2hZmrTHPFLisujiEPU="
         }
       ]
     },
@@ -7808,7 +7808,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 24 Feb 2025 12:33:32 GMT"
+          "Value": "Wed, 14 May 2025 08:13:25 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -7853,7 +7853,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 24 Feb 2025 12:33:32 GMT"
+          "Value": "Wed, 14 May 2025 08:13:25 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -7898,7 +7898,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 24 Feb 2025 12:33:32 GMT"
+          "Value": "Wed, 14 May 2025 08:13:25 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -7935,7 +7935,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 24 Feb 2025 12:33:32 GMT"
+          "Value": "Wed, 14 May 2025 08:13:25 GMT"
         },
         {
           "Name": "Cache-Control",

@@ -1,12 +1,24 @@
 export const loginCallBack = (response) => {
+  $('#loadingSpinner').addClass('d-none');
+  if (response.code === 200) {
+    messageAlert(response.message, "success");
+    window.location.href = 'dashboard';
+  } else {
+    messageAlert(response.message, "error");
+  }
+};
+
+export const registerCallBack = (response) => {
   console.log(response);
-  // $('#loadingSpinner').addClass('d-none');
-  // if (response.code === 200) {
-  //   messageAlert(response.message, "success");
-  //   window.location.href = 'dashboard';
-  // } else {
-  //   messageAlert(response.message, "error");
-  // }
+  $('#loadingSpinner').addClass('d-none');
+  if (response.code === 200) {
+    messageAlert(response.message, "success");
+    setTimeout(function() {
+      window.location.href = '/';
+    }, 3000)
+  } else {
+    messageAlert(response.message, "error");
+  }
 };
 
 export const photoUploadCallBack = (response) => {

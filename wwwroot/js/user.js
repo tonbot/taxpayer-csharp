@@ -1,5 +1,5 @@
 import * as config from "./config.js";
-import {loginCallBack,photoUploadCallBack,changePasswordCallBack,updateIndividualCallBack,updateCorporateCallBack,createIndividualCallBack,createCorporateCallBack,initPasswordResetCallBack,resetPasswordCallBack} from "./callBackFunction.js";
+import {loginCallBack, registerCallBack, photoUploadCallBack,changePasswordCallBack,updateIndividualCallBack,updateCorporateCallBack,createIndividualCallBack,createCorporateCallBack,initPasswordResetCallBack,resetPasswordCallBack} from "./callBackFunction.js";
 
 //login function
 window.login = function () {
@@ -11,7 +11,7 @@ window.login = function () {
 window.register = function () {
   if (!config.validateForm("registerForm")) return;
   let data = config.formData("registerForm");
-  sendAjaxRequest(data, loginCallBack, '/register');
+  sendAjaxRequest(data, registerCallBack, '/register');
 };
 
 // upload tax payer photo 

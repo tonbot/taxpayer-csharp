@@ -24,6 +24,10 @@ build_property.EnableCodeStyleSeverity =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQmlsbFxTaW5nbGVcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/workspace/c\#/MyFirstCoreApp/Pages/Bill/Single/Success.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQmlsbFxTaW5nbGVcU3VjY2Vzcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/workspace/c\#/MyFirstCoreApp/Pages/Dashboard/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRGFzaGJvYXJkXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
