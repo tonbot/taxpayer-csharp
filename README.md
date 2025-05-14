@@ -6,7 +6,7 @@ This project focuses on implementing a secure and user-friendly interface that a
 The purpose of this project is to apply server-side development with ASP.NET, practice front-end design using HTML and CSS, connect with a MySQL database, and integrate version control using Git.
 
 # Software Demo Video
-👉 [Watch Demo on YouTube](https://youtu.be/your-demo-link-here) 
+👉 [Watch Demo on YouTube](https://youtu.be/uDetwxcF3mQ) 
 
 
 # Development Environment
@@ -46,6 +46,7 @@ Visual Studio IDE
 This project gave me hands-on experience in:
 
 * Structuring a multi-page .NET web application
+* Dependency Injection
 * Handling user authentication and session control
 * Connecting .NET apps to a MySQL database
 * Designing user interfaces using HTML & CSS
